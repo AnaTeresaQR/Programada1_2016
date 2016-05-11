@@ -9,15 +9,16 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import tp_subasta.User;
+
 
 /**
  *
  * @author Ana Teresa
+ * @param <T>
  */
-public class FileReader {
+public class FileReader <T>{
     private ObjectInputStream reader;
-    private FileLoader loader;
+    private final FileLoader loader;
     
     public FileReader(String fileName){
         loader = new FileLoader(fileName);
@@ -47,8 +48,8 @@ public class FileReader {
      * busca
      * @throws java.io.EOFException si se encuentra al final del archivo
      */
-    public User read() throws IOException, EOFException, ClassNotFoundException {
-        return (User) reader.readObject();
+    public T read() throws IOException, EOFException, ClassNotFoundException {
+        return (T) reader.readObject();
     }
     
     /**

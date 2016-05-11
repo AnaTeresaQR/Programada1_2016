@@ -14,8 +14,9 @@ import tp_subasta.User;
 /**
  *
  * @author Ana Teresa
+ * @param <T> object
  */
-public class FileWriter {
+public class FileWriter <T>{
     private ObjectOutputStream writer;
     private final FileLoader loader;
     
@@ -35,11 +36,11 @@ public class FileWriter {
     
      /**
      * Se encarga de escribir en el archivo
-     * @param user
+     * @param object
      * @throws java.io.IOException si se da un error al escribir
      */
-    public void writeUser(User user) throws IOException {
-        writer.writeObject(user);
+    public void writeUser(T object) throws IOException {
+        writer.writeObject(object);
     }
     
     /**
