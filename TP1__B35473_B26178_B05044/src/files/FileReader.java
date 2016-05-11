@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package archivo;
+package files;
 
 import java.io.EOFException;
 import java.io.FileInputStream;
@@ -19,8 +19,8 @@ public class FileReader {
     private ObjectInputStream reader;
     private FileLoader loader;
     
-    public FileReader(){
-        loader = new FileLoader();
+    public FileReader(String fileName){
+        loader = new FileLoader(fileName);
     }
     
       /**

@@ -1,4 +1,4 @@
-package archivo;
+package files;
 
 import java.io.EOFException;
 import java.io.IOException;
@@ -13,8 +13,9 @@ import tp_subasta.*;
 public class Main {
 
     public static void main(String[] args) throws Excepcion, IOException, EOFException, ClassNotFoundException {
-        FileWriter fileWriter = new FileWriter();
-        FileReader fileReader = new FileReader();
+        String fileNameUser = "usersFile.bin";
+        FileWriter fileWriter = new FileWriter(fileNameUser);
+        FileReader fileReader = new FileReader(fileNameUser);
         
          AbstractBuilderCreateUser abs = null;
 

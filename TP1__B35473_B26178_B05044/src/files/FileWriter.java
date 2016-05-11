@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package archivo;
+package files;
+
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,8 +19,8 @@ public class FileWriter {
     private ObjectOutputStream writer;
     private final FileLoader loader;
     
-    public FileWriter(){
-        loader = new FileLoader();
+    public FileWriter(String fileName){
+        loader = new FileLoader(fileName);
     }
     
     /**
