@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  *
  * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
-public class ConcreteBuilderCrearUsuario implements AbstractBuilderCreateUser {
+public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
 
     private User user;
     private boolean check;
@@ -19,7 +19,7 @@ public class ConcreteBuilderCrearUsuario implements AbstractBuilderCreateUser {
     /**
      * Costructor de la clase.
      */
-    public ConcreteBuilderCrearUsuario() {
+    public ConcreteBuilderCreateUser() {
         user = new User();
     }
 

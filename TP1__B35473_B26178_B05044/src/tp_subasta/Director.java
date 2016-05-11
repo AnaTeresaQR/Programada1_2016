@@ -4,14 +4,14 @@ import java.util.Calendar;
 
 /**
  *
- * @author robert
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public class Director {
 
     public User createUser(AbstractBuilderCreateUser builder, String id, String name, String email, String password, Calendar birthday, String phoneNumber) throws Excepcion {
         
         if (builder == null) {
-            builder = new ConcreteBuilderCrearUsuario();
+            builder = new ConcreteBuilderCreateUser();
         }
         
         builder.buildId(id);

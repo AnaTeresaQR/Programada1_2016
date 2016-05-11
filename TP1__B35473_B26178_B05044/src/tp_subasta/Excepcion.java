@@ -4,8 +4,8 @@ package tp_subasta;
  * Clase que extiende de interfaz de Java Exception para cubrir excepciones en
  * el sistema.
  *
-  *Robert Sánchez, Edgardo QuirósRobert,edgardo
-*/
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
+ */
 public class Excepcion extends Exception {
 
     /**

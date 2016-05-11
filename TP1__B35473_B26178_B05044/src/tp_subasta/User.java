@@ -1,12 +1,13 @@
 package tp_subasta;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 /**
  *
- * @author robert
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
-public class User {
+public class User implements Serializable{
 
     private String id;
     private String name;
