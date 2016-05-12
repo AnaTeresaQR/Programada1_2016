@@ -2,22 +2,46 @@ package managerList;
 
 import java.util.ArrayList;
 import java.util.List;
-import tp_subasta.Excepcion;
-import tp_subasta.User;
+import usersBuilder.CustomException;
+import usersBuilder.User;
 
 /**
+ * Class that is responsible for handling the user list, is responsible for
+ * registering a user or logging a user in the system. Only this class can
+ * create an instance of itself. Singleton pattern
  *
- * @author Ana Teresa
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public class UsersList {
 
     private List<User> userslist;
+    private static UsersList uniqueInstance;
 
-    public UsersList() {
+    private UsersList() {
         userslist = new ArrayList<>();
         listLoader();
     }
 
+    /**
+     * Method that creates a single instance of class
+     *
+     * @return the unique instance of this class
+     */
+    public static UsersList getUniqueInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new UsersList();
+        }
+        return uniqueInstance;
+    }
+
+    /**
+     * registers a user, adds a user into the list, returns true if can
+     * register, or false if failing to register
+     *
+     * @param user
+     * @return true, if a user could register, false if a user failed to
+     * register
+     */
     public boolean register(User user) {
         if (!exist(user)) {
             return userslist.add(user);
@@ -25,21 +49,36 @@ public class UsersList {
         return false;
     }
 
-    public User login(String email, String password) throws Excepcion {
+    /**
+     * Login a user, search in the user list
+     *
+     * @param email receives the email to search in the list, if the user exist
+     * @param password receives the password to search in the list, if the user
+     * exist with the email and the password is correct too
+     * @return the user found
+     * @throws CustomException if the user is not found
+     */
+    public User login(String email, String password) throws CustomException {
         for (User temp : userslist) {
-            // Pregunta si el email es correcto
+            // ask if the email is correct
             if (temp.getEmail().equals(email)) {
-                // Pregunta si la contraseña es correcta
+                // ask if the password is correct
                 if (temp.getPassword().equals(password)) {
-                    // Retorna al jugado encontrado
+                    // return the user found
                     return temp;
                 }
             }
         }
-        // No se encuentra al jugador
-        throw new Excepcion("No se encontro el usuario");
+        // the user is not found 
+        throw new CustomException("No se encontro el usuario");
     }
 
+    /**
+     * Returns a user in the list with the index in this list
+     *
+     * @param i ,the index for search in the list
+     * @return the user that matches the list
+     */
     public User getIndex(int i) {
         return userslist.get(i);
     }
@@ -54,20 +93,34 @@ public class UsersList {
         return false;
     }
 
+    /**
+     * Contains the size of the list
+     *
+     * @return the size of the list
+     */
     public int size() {
         return userslist.size();
     }
 
-    private void listLoader() {
-        UserListLoader loader = new UserListLoader();
-        this.userslist = loader.loadList();
-    }
-
+    /**
+     * Refreshes the list if new users are added
+     */
     public void refresh() {
         userslist.clear();
         listLoader();
     }
 
+    /**
+     * Load the list with file elements
+     */
+    private void listLoader() {
+        UserListLoader loader = new UserListLoader();
+        this.userslist = loader.loadList();
+    }
+
+    /**
+     * Save the list in the binary file
+     */
     public void save() {
         UserListSaver save = new UserListSaver();
         save.saveList(this.userslist);

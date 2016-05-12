@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package files;
 
 import java.io.File;
@@ -11,23 +6,27 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 /**
+ * Class is responsible for loading the file. receives in the constructor the
+ * name of the file to load
  *
- * @author Ana Teresa
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public class FileLoader {
 
     URL url = null; // Unified resource located
     File userFile;
-    String fileName;
+    String fileName; // name of the file
 
     public FileLoader(String fileName) {
         this.fileName = fileName;
         load();
     }
 
+    /**
+     * First search the file path, and load the binary file to a File
+     */
     private void load() {
         try {
-
             this.url = getClass().getResource(fileName);
             this.userFile = new File(url.toURI());
 
@@ -37,16 +36,21 @@ public class FileLoader {
     }
 
     /**
-     * Envia un File para ser cargado
+     * Send a File to be loaded
      *
-     * @return File conteniendo información sobre el userFile de jugadores
+     * @return File containing information about the userfile
      */
     public File getFile() {
 
         return this.userFile;
 
-    } // Fin enviar
+    }
 
+    /**
+     * Deletes the file with information and creates an empty with the same path
+     *
+     * @throws IOException, Invalid file path
+     */
     public void clear() throws IOException {
         userFile.delete();
         userFile.createNewFile();

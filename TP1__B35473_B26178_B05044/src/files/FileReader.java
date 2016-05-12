@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package files;
 
 import java.io.EOFException;
@@ -10,24 +5,26 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-
 /**
+ * Class is responsible for write in the file. receives in the constructor the
+ * name of the file to write in it
  *
- * @author Ana Teresa
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  * @param <T>
  */
-public class FileReader <T>{
+public class FileReader<T> {
+
     private ObjectInputStream reader;
     private final FileLoader loader;
-    
-    public FileReader(String fileName){
+
+    public FileReader(String fileName) {
         loader = new FileLoader(fileName);
     }
-    
-      /**
-     * Abrir para poder leer el archivo
+
+    /**
+     * Open to read the file
      *
-     * @throws java.io.IOException si no se abre correctamente
+     * @throws java.io.IOException if it does not open properly
      */
     public void open() throws IOException {
         try {
@@ -38,29 +35,28 @@ public class FileReader <T>{
             System.out.println(e.getMessage());
         }
     }
-    
+
     /**
-     * Método que se encarga de leer el archivo
+     * Method is responsible for reading the file
      *
-     * @return el jugador leido
-     * @throws java.io.IOException error en el archivo
-     * @throws java.lang.ClassNotFoundException si no encuentra la clase que
-     * busca
-     * @throws java.io.EOFException si se encuentra al final del archivo
+     * @return a read user
+     * @throws java.io.IOException file error
+     * @throws java.lang.ClassNotFoundException if the class is not looking
+     * @throws java.io.EOFException if it is the end of file
      */
     public T read() throws IOException, EOFException, ClassNotFoundException {
         return (T) reader.readObject();
     }
-    
+
     /**
-     * Cerrar el archivo luego de la lectura
+     * Close the file after reading
      *
-     * @throws java.io.IOException si hay problemas al cerrar el archivo
+     * @throws java.io.IOException if there are problems when close the file
      */
     public void close() throws IOException {
         if (reader != null) {
             reader.close();
         }
     }
-    
+
 }

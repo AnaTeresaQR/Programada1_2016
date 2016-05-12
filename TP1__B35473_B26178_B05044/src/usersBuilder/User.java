@@ -1,30 +1,31 @@
-package tp_subasta;
+package usersBuilder;
 
 import java.io.Serializable;
 import java.util.Calendar;
 
 /**
+ * The user object with its data, get and set
  *
  * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
-public class User implements Serializable{
+public class User implements Serializable {
 
-    private String id;
-    private String name;
-    private String email;
-    private String password;
-    private Calendar birthday;
-    private String phoneNumber;
+    private String id; // user shcedule
+    private String name; // user name
+    private String email; // user email
+    private String password; // user email password
+    private Calendar birthdate; // user birthdate
+    private String phoneNumber; // user phoneNumber
 
     public User() {
     }
 
-    public User(String id, String name, String email, String password, Calendar birthday, String phoneNumber) {
+    public User(String id, String name, String email, String password, Calendar birthdate, String phoneNumber) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.birthday = birthday;
+        this.birthdate = birthdate;
         this.phoneNumber = phoneNumber;
     }
 
@@ -60,12 +61,12 @@ public class User implements Serializable{
         this.password = password;
     }
 
-    public Calendar getBirthday() {
-        return birthday;
+    public Calendar getBirthdate() {
+        return birthdate;
     }
 
-    public void setBirthday(Calendar birthday) {
-        this.birthday = birthday;
+    public void setBirthdate(Calendar birthdate) {
+        this.birthdate = birthdate;
     }
 
     public String getPhoneNumber() {
@@ -78,7 +79,7 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", birthday=" + birthday.getTime().toLocaleString() + ", phoneNumber=" + phoneNumber + '}';
+        return "Usuario{ " + "Schedule: " + id + ", name: " + name + "\nemail: " + email + ", password: " + password + ", birthdate: " + birthdate.getTime().toLocaleString() + ", phoneNumber: " + phoneNumber + '}';
     }
 
 }

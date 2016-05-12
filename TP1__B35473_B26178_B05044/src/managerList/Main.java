@@ -1,34 +1,33 @@
 package managerList;
 
 import java.util.GregorianCalendar;
-import tp_subasta.AbstractBuilderCreateUser;
-import tp_subasta.Director;
-import tp_subasta.Excepcion;
-import tp_subasta.User;
+import usersBuilder.AbstractBuilderCreateUser;
+import usersBuilder.Director;
+import usersBuilder.CustomException;
+import usersBuilder.User;
 
 /**
  *
- * @author Ana Teresa
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public class Main {
 
-    public static void main(String[] args) throws Excepcion {
+    public static void main(String[] args) throws CustomException {
 
         AbstractBuilderCreateUser abs = null;
 
         Director director = new Director();
 
         User user3 = director.createUser(abs, "207410170", "AnaTeresa", "ana.quesada@ucrso.info", "ana123", new GregorianCalendar(1995, 9, 9), "84590688");
-        UsersList userList = new UsersList();
-        // Guardamos la list
-        userList.register(user3);
+        UsersList userList = UsersList.getUniqueInstance();
+        // save the list
+        userList.register(user3); // register an user
         userList.save();
-        // Se refresca
+        // refresh
         userList.refresh();
 
         System.out.println(userList.getIndex(0));
-        System.out.println("Login user: " + userList.login("ana.quesada@ucrso.info", "ana123"));
-        System.out.println("");
+        System.out.println("Login user: " + userList.login("ana.quesada@ucrso.info", "ana123")); // login a user
 
     }
 

@@ -1,4 +1,4 @@
-package tp_subasta;
+package usersBuilder;
 
 /**
  * Clase que extiende de interfaz de Java Exception para cubrir excepciones en
@@ -6,7 +6,7 @@ package tp_subasta;
  *
  * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
-public class Excepcion extends Exception {
+public class CustomException extends Exception {
 
     /**
      * Costructor de la clase.
@@ -14,7 +14,7 @@ public class Excepcion extends Exception {
      * @param mensaje Mesaje que se muestra cuando aparece una excepcion
      * cubierta.
      */
-    public Excepcion(String mensaje) {
+    public CustomException(String mensaje) {
         super(mensaje);
     }
 }

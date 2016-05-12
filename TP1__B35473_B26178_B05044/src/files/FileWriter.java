@@ -1,56 +1,58 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package files;
-
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-
 /**
+ * To open an object file that can be generic
  *
- * @author Ana Teresa
- * @param <T> object
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
+ * @param <T> object .can be users or auctions (subastas)
  */
-public class FileWriter <T>{
+public class FileWriter<T> {
+
     private ObjectOutputStream writer;
-    private final FileLoader loader;
-    
-    public FileWriter(String fileName){
+    private final FileLoader loader; // class that load the file
+
+    public FileWriter(String fileName) {
         loader = new FileLoader(fileName);
     }
-    
+
     /**
-     * Abre el archivo de registro
+     * Open the log file
      *
-     * @throws java.io.IOException excepción si hubo error al abrir el archivo
+     * @throws java.io.IOException exception if there was error opening the file
      */
     public void open() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(loader.getFile());
         writer = new ObjectOutputStream(fileOutputStream);
     }
-    
-     /**
-     * Se encarga de escribir en el archivo
-     * @param object
-     * @throws java.io.IOException si se da un error al escribir
+
+    /**
+     * It is responsible for writing to the file
+     *
+     * @param object, receives the object that is to be written, can be a user
+     * or auctions
+     * @throws java.io.IOException if an error occurs when writing
      */
     public void write(T object) throws IOException {
-        writer.writeObject(object);
+        writer.writeObject(object); // write in the file
     }
-    
-    public void clear() throws IOException{
+
+    /**
+     * Clear the file
+     *
+     * @throws IOException, Invalid file path
+     */
+    public void clear() throws IOException {
         loader.clear();
     }
-    
+
     /**
-     * Cierra el archivo
+     * Close the file
      *
-     * @throws java.io.IOException si hubo error al cerrar el archivo
+     * @throws java.io.IOException if there was error closing file
      */
     public void close() throws IOException {
         if (writer != null) {

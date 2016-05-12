@@ -1,4 +1,4 @@
-package tp_subasta;
+package usersBuilder;
 
 import java.util.GregorianCalendar;
 
@@ -19,7 +19,7 @@ public class MainBuilderUser {
             User user1 = director.createUser(abs, "207410170", "AnaTeresaQuesada", "ana.quesada@gmail.com", "123456A", new GregorianCalendar(1995, 6, 29), "87518238");
             System.out.println("" + user1.toString());
 
-        } catch (Excepcion ex) {
+        } catch (CustomException ex) {
             System.out.println("" + ex.getMessage());
         }
 
