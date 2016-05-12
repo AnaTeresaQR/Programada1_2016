@@ -38,7 +38,7 @@ public class UsersList {
      * registers a user, adds a user into the list, returns true if can
      * register, or false if failing to register
      *
-     * @param user
+     * @param user, receives the user to register
      * @return true, if a user could register, false if a user failed to
      * register
      */
@@ -83,6 +83,14 @@ public class UsersList {
         return userslist.get(i);
     }
 
+    /**
+     * Check if a user already exist in the list with te same email or with the
+     * same id
+     *
+     * @param user, receives the user to compare with the alements of the list
+     * @return, true if have the same attributes with another object in the
+     * list, false if does not existe the local object
+     */
     public boolean exist(User user) {
         for (User u : userslist) {
             if (u.getEmail().equals(user.getEmail())

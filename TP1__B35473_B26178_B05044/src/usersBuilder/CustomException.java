@@ -1,20 +1,19 @@
 package usersBuilder;
 
 /**
- * Clase que extiende de interfaz de Java Exception para cubrir excepciones en
- * el sistema.
+ * Class interface that extends of Java Exception to cover exceptions in the
+ * system.
  *
  * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public class CustomException extends Exception {
 
     /**
-     * Costructor de la clase.
+     * Class constructor
      *
-     * @param mensaje Mesaje que se muestra cuando aparece una excepcion
-     * cubierta.
+     * @param message displayed when an exception occurs
      */
-    public CustomException(String mensaje) {
-        super(mensaje);
+    public CustomException(String message) {
+        super(message);
     }
 }
