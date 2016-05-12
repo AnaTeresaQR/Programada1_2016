@@ -31,7 +31,7 @@ public class FileReader <T>{
      */
     public void open() throws IOException {
         try {
-            FileInputStream fileInputStream = new FileInputStream(loader.load());
+            FileInputStream fileInputStream = new FileInputStream(loader.getFile());
             reader = new ObjectInputStream(fileInputStream);
 
         } catch (EOFException e) {

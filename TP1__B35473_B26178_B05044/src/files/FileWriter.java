@@ -9,7 +9,7 @@ package files;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import tp_subasta.User;
+
 
 /**
  *
@@ -30,7 +30,7 @@ public class FileWriter <T>{
      * @throws java.io.IOException excepción si hubo error al abrir el archivo
      */
     public void open() throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream(loader.load());
+        FileOutputStream fileOutputStream = new FileOutputStream(loader.getFile());
         writer = new ObjectOutputStream(fileOutputStream);
     }
     
@@ -39,8 +39,12 @@ public class FileWriter <T>{
      * @param object
      * @throws java.io.IOException si se da un error al escribir
      */
-    public void writeUser(T object) throws IOException {
+    public void write(T object) throws IOException {
         writer.writeObject(object);
+    }
+    
+    public void clear() throws IOException{
+        loader.clear();
     }
     
     /**

@@ -14,8 +14,8 @@ public class Main {
 
     public static void main(String[] args) throws Excepcion, IOException, EOFException, ClassNotFoundException {
         String fileNameUser = "usersFile.bin";
-        FileWriter fileWriter = new FileWriter(fileNameUser);
-        FileReader fileReader = new FileReader(fileNameUser);
+        FileWriter<User> fileWriter = new FileWriter<>(fileNameUser);
+        FileReader<User> fileReader = new FileReader<>(fileNameUser);
         
          AbstractBuilderCreateUser abs = null;
 
@@ -24,7 +24,7 @@ public class Main {
          User user1 = director.createUser(abs, "207410170", "AnaTeresaQuesada", "ana.quesada@gmail.com", "123456A", new GregorianCalendar(1995, 6, 29), "87518238");
          
          fileWriter.open();
-         fileWriter.writeUser(user1);
+         fileWriter.write(user1);
          fileWriter.close();
          
          fileReader.open();
