@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>UserListSaver.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;TP1__B35473_B26178_B05044&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">managerList</a> &gt; <span class="el_source">UserListSaver.java</span></div><h1>UserListSaver.java</h1><pre class="source lang-java linenums">package managerList;
+
+import files.FileWriter;
+import java.io.IOException;
+import java.util.List;
+import usersBuilder.User;
+
+/**
+ * Class writes the list stored in the collection in a binary file
+ *
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
+ */
+public class UserListSaver {
+
+    private final FileWriter&lt;User&gt; fileWriter;
+<span class="fc" id="L16">    private final String FILE_NAME = &quot;usersFile.bin&quot;; // users binary file</span>
+
+<span class="fc" id="L18">    public UserListSaver() {</span>
+<span class="fc" id="L19">        fileWriter = new FileWriter&lt;&gt;(FILE_NAME);</span>
+<span class="fc" id="L20">    }</span>
+
+    /**
+     * Method loops through the list and is responsible for storing each item in
+     * binary files of users
+     *
+     * @param list, receives the list to write in the file
+     */
+    public void saveList(List&lt;User&gt; list) {
+        try {
+<span class="fc" id="L30">            fileWriter.clear(); // first clear the file</span>
+<span class="fc" id="L31">            fileWriter.open();</span>
+
+<span class="fc bfc" id="L33" title="All 2 branches covered.">            for (User userTemp : list) {</span>
+<span class="fc" id="L34">                fileWriter.write(userTemp); // write a user in the binary file</span>
+<span class="fc" id="L35">            }</span>
+
+<span class="fc" id="L37">            fileWriter.close();</span>
+<span class="nc" id="L38">        } catch (IOException e) {</span>
+<span class="nc" id="L39">            System.out.println(&quot;No se puede guardar la lista\n&quot; + e.getMessage());</span>
+<span class="fc" id="L40">        }</span>
+<span class="fc" id="L41">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

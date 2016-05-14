@@ -30,27 +30,6 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public User getUser() throws CustomException {
-
-        if (!checkName()) {
-            throw new CustomException("La extensión del nombre excede el tamaño permitido, debe ser menor a 100 caracteres.");
-        }
-
-        if (!checkId()) {
-            throw new CustomException("Formato incorrecto de cédula, utilice el formato de cédula costarricense");
-        }
-
-        if (!checkEmail()) {
-            throw new CustomException("Formato incorrecto de email, Ingrese de nuevo. Ejemplo: ejemplo1@ejemplo.com");
-        }
-
-        if (!checkPassword()) {
-            throw new CustomException("Formato incorrecto de contraseña. Ingrese de nuevo, no debe contener caracteres especiales y debe tener una extensión mínima de 5 caracteres.");
-        }
-
-        if (!checkPhoneNumber()) {
-            throw new CustomException("Formato incorrecto de teléfono. Ingrese de nuevo, utilizar formato constarricense");
-        }
-
         return user;
 
     }
@@ -146,10 +125,11 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildId(String id) throws CustomException {
-        if (id != null && !id.equals("")) {
+        if (checkId()) {
             user.setId(id);
         } else {
-            throw new CustomException("No es posible guardar la cédula");
+                       throw new CustomException("Formato incorrecto de cédula, utilice el formato de cédula costarricense");
+ 
         }
 
     }
@@ -162,10 +142,11 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildName(String name) throws CustomException {
-        if (name != null && !name.equals("")) {
+        if (checkName()) {
             user.setName(name);
+
         } else {
-            throw new CustomException("No es posible guardar el nombre");
+            throw new CustomException("La extensión del nombre excede el tamaño permitido, debe ser menor a 100 caracteres.");
         }
     }
 
@@ -177,10 +158,10 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildEmail(String email) throws CustomException {
-        if (email != null && !email.equals("")) {
+        if (checkEmail()) {
             user.setEmail(email);
         } else {
-            throw new CustomException("No es posible guardar el correo");
+            throw new CustomException("Formato incorrecto de email, Ingrese de nuevo. Ejemplo: ejemplo1@ejemplo.com");
         }
     }
 
@@ -192,11 +173,11 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildPassword(String password) throws CustomException {
-        if (password != null && !password.equals("")) {
+        if (checkPassword()) {
             user.setPassword(password);
         } else {
-            throw new CustomException("No es posible guardar la contraseña");
-        }
+        throw new CustomException("Formato incorrecto de contraseña. Ingrese de nuevo, no debe contener caracteres especiales y debe tener una extensión mínima de 5 caracteres.");
+       }
     }
 
     /**
@@ -222,10 +203,10 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildPhoneNumber(String phoneNumber) throws CustomException {
-        if (phoneNumber != null && !phoneNumber.equals("")) {
+        if (checkPhoneNumber()) {
             user.setPhoneNumber(phoneNumber);
         } else {
-            throw new CustomException("No es posible guardar el número de teléfono");
+            throw new CustomException("Formato incorrecto de teléfono. Ingrese de nuevo, utilizar formato constarricense");
         }
     }
 
@@ -237,8 +218,17 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     private boolean validateAdult(Calendar birthdate) {
         Calendar actual = Calendar.getInstance();
-        int age = actual.get(Calendar.YEAR) - birthdate.get(Calendar.YEAR);
-        return age >= 18;
+
+        int year = actual.get(Calendar.YEAR) - birthdate.get(Calendar.YEAR);
+        int month = actual.get(Calendar.MONTH) - birthdate.get(Calendar.MONTH);
+        int day = actual.get(Calendar.DAY_OF_MONTH) - birthdate.get(Calendar.DAY_OF_MONTH);
+        if (day < 0) {
+            if (month < 0) {
+                year--;
+            }
+        }
+        return year >= 18;
     }
+
 
 }

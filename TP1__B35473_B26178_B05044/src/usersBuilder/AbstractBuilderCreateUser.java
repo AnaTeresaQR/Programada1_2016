@@ -23,4 +23,16 @@ public interface AbstractBuilderCreateUser {
     public void buildPhoneNumber(String phoneNumber) throws CustomException;
 
     public User getUser() throws CustomException;
+    
+    public boolean checkId();
+    
+    public boolean checkName();
+    
+    public boolean checkEmail();
+    
+    public boolean checkPassword();
+    
+    public boolean checkPhoneNumber();
+    
+    
 }
