@@ -9,7 +9,7 @@ import org.junit.runners.Suite;
 
 /**
  *
- * @author Edgardo Quirós
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({usersBuilder.DirectorTest.class, usersBuilder.MainBuilderUserTest.class, usersBuilder.CustomExceptionTest.class, usersBuilder.AbstractBuilderCreateUserTest.class, usersBuilder.ConcreteBuilderCreateUserTest.class, usersBuilder.UserTest.class})

@@ -15,7 +15,7 @@ import usersBuilder.User;
 
 /**
  *
- * @author Edgardo Quirós
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public class UsersListTest {
 
@@ -70,7 +70,6 @@ public class UsersListTest {
     /**
      * Test of login method, of class UsersList.
      */
-
     public void testLogin() throws Exception {
         System.out.println("login");
         AbstractBuilderCreateUser abs = null;

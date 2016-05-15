@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package usersBuilder;
 
 import java.util.Calendar;
@@ -15,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Edgardo Quirós
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public class ConcreteBuilderCreateUserTest {
 
@@ -40,6 +35,8 @@ public class ConcreteBuilderCreateUserTest {
 
     /**
      * Test of getUser method, of class ConcreteBuilderCreateUser.
+     *
+     * @throws java.lang.Exception
      */
     @Test
     public void testGetUser() throws Exception {
@@ -55,70 +52,76 @@ public class ConcreteBuilderCreateUserTest {
     /**
      * Test of checkName method, of class ConcreteBuilderCreateUser.
      */
-//    @Test
-//    public void testCheckName() {
-//        System.out.println("checkName");
-//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-//        boolean expResult = false;
+    @Test
+    public void testCheckName() {
+        System.out.println("checkName");
+        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+        boolean expResult = false;
 //        boolean result = instance.checkName();
 //        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
     /**
      * Test of checkId method, of class ConcreteBuilderCreateUser.
      */
-//    @Test
-//    public void testCheckId() {
-//        System.out.println("checkId");
-//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-//        boolean expResult = false;
+    @Test
+    public void testCheckId() {
+        System.out.println("checkId");
+        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+        boolean expResult = false;
 //        boolean result = instance.checkId();
 //        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
     /**
      * Test of checkEmail method, of class ConcreteBuilderCreateUser.
      */
-//    @Test
-//    public void testCheckEmail() {
-//        System.out.println("checkEmail");
-//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-//        boolean expResult = false;
+    @Test
+    public void testCheckEmail() {
+        System.out.println("checkEmail");
+        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+        boolean expResult = false;
 //        boolean result = instance.checkEmail();
 //        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
     /**
      * Test of checkPassword method, of class ConcreteBuilderCreateUser.
      */
-//    @Test
-//    public void testCheckPassword() {
-//        System.out.println("checkPassword");
-//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-//        boolean expResult = false;
+    @Test
+    public void testCheckPassword() {
+        System.out.println("checkPassword");
+        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+        boolean expResult = false;
 //        boolean result = instance.checkPassword();
 //        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
     /**
      * Test of checkPhoneNumber method, of class ConcreteBuilderCreateUser.
      */
-//    @Test
-//    public void testCheckPhoneNumber() {
-//        System.out.println("checkPhoneNumber");
-//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-//        boolean expResult = false;
+    @Test
+    public void testCheckPhoneNumber() {
+        System.out.println("checkPhoneNumber");
+        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+        boolean expResult = false;
 //        boolean result = instance.checkPhoneNumber();
 //        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+        fail("The test case is a prototype.");
+    }
+
     /**
      * Test of buildId method, of class ConcreteBuilderCreateUser.
+     *
+     * @throws java.lang.Exception
      */
     @Test
     public void testBuildId() throws Exception {
@@ -132,6 +135,8 @@ public class ConcreteBuilderCreateUserTest {
 
     /**
      * Test of buildName method, of class ConcreteBuilderCreateUser.
+     *
+     * @throws java.lang.Exception
      */
     @Test
     public void testBuildName() throws Exception {
@@ -145,6 +150,8 @@ public class ConcreteBuilderCreateUserTest {
 
     /**
      * Test of buildEmail method, of class ConcreteBuilderCreateUser.
+     *
+     * @throws java.lang.Exception
      */
     @Test
     public void testBuildEmail() throws Exception {
@@ -158,6 +165,8 @@ public class ConcreteBuilderCreateUserTest {
 
     /**
      * Test of buildPassword method, of class ConcreteBuilderCreateUser.
+     *
+     * @throws java.lang.Exception
      */
     @Test
     public void testBuildPassword() throws Exception {
@@ -171,6 +180,8 @@ public class ConcreteBuilderCreateUserTest {
 
     /**
      * Test of buildBirthdate method, of class ConcreteBuilderCreateUser.
+     *
+     * @throws java.lang.Exception
      */
     @Test
     public void testBuildBirthdate() throws Exception {
@@ -184,6 +195,8 @@ public class ConcreteBuilderCreateUserTest {
 
     /**
      * Test of buildPhoneNumber method, of class ConcreteBuilderCreateUser.
+     *
+     * @throws java.lang.Exception
      */
     @Test
     public void testBuildPhoneNumber() throws Exception {

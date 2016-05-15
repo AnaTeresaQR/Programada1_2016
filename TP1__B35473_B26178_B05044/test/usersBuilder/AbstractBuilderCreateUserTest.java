@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Edgardo Quirós
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.s
  */
 public class AbstractBuilderCreateUserTest {
 
@@ -170,69 +170,74 @@ public class AbstractBuilderCreateUserTest {
     /**
      * Test of checkId method, of class AbstractBuilderCreateUser.
      */
-//    @Test(expected = CustomException.class)
-//    public void testCheckId() throws CustomException {
-//        System.out.println("checkId");
-//        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
-//        String id = "12345679";
-//        builder.buildId(id);
-//        boolean expResult = false;
+    @Test(expected = CustomException.class)
+    public void testCheckId() throws CustomException {
+        System.out.println("checkId");
+        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
+        String id = "12345679";
+        builder.buildId(id);
+        boolean expResult = false;
 //        boolean result = builder.checkId();
 //        assertEquals(expResult, result);
-//    }
+    }
+
     /**
      * Test of checkName method, of class AbstractBuilderCreateUser.
      */
-//    @Test(expected = CustomException.class)
-//    public void testCheckName() throws CustomException {
-//        System.out.println("checkName");
-//        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
-//        String name = "edga1";
-//        builder.buildName(name);
-//        boolean expResult = false;
+    @Test(expected = CustomException.class)
+    public void testCheckName() throws CustomException {
+        System.out.println("checkName");
+        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
+        String name = "edga1";
+        builder.buildName(name);
+        boolean expResult = false;
 //        boolean result = builder.checkName(name);
 //        assertEquals(expResult, result);
-//
-//    }
+
+    }
+
     /**
      * Test of checkEmail method, of class AbstractBuilderCreateUser.
      */
-//    @Test(expected = CustomException.class)
-//    public void testCheckEmail() throws CustomException {
-//        System.out.println("checkEmail");
-//        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
-//        String email = "edgardo";
-//        builder.buildEmail(email);
-//        boolean expResult = false;
+    @Test(expected = CustomException.class)
+    public void testCheckEmail() throws CustomException {
+        System.out.println("checkEmail");
+        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
+        String email = "edgardo";
+        builder.buildEmail(email);
+        boolean expResult = false;
 //        boolean result = builder.checkEmail();
 //        assertEquals(expResult, result);
-//    }
+    }
+
     /**
      * Test of checkPassword method, of class AbstractBuilderCreateUser.
      */
-//    @Test(expected = CustomException.class)
-//    public void testCheckPassword() throws CustomException {
-//        System.out.println("checkPassword");
-//        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
-//        String password = "1234";
-//        builder.buildPassword(password);
-//        boolean expResult = false;
+    @Test(expected = CustomException.class)
+    public void testCheckPassword() throws CustomException {
+        System.out.println("checkPassword");
+        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
+        String password = "1234";
+        builder.buildPassword(password);
+        boolean expResult = false;
 //        boolean result = builder.checkPassword();
 //        assertEquals(expResult, result);
-//    }
+    }
+
     /**
      * Test of checkPhoneNumber method, of class AbstractBuilderCreateUser.
      */
-//    @Test(expected = CustomException.class)
-//    public void testCheckPhoneNumber() throws CustomException {
-//        System.out.println("checkPhoneNumber");
-//        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
-//        String phoneNumber = "24231212";
-//        builder.buildPhoneNumber(phoneNumber);
-//        boolean expResult = true;
+    @Test(expected = CustomException.class)
+    public void testCheckPhoneNumber() throws CustomException {
+        System.out.println("checkPhoneNumber");
+        AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();
+        String phoneNumber = "24231212";
+        builder.buildPhoneNumber(phoneNumber);
+        boolean expResult = true;
 //        boolean result = builder.checkPhoneNumber();
 //        assertEquals(expResult, result);
-//    }
+    }
+
     @Test(expected = CustomException.class)
     public void testGetUserVoid() throws CustomException {
         AbstractBuilderCreateUser builder = new ConcreteBuilderCreateUser();

@@ -12,7 +12,7 @@ import usersBuilder.User;
 
 /**
  *
- * @author Edgardo Quirós
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public class ListLoaderTest {
 

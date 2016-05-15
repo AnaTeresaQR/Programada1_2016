@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package managerList;
 
 import org.junit.After;
@@ -14,7 +9,7 @@ import org.junit.runners.Suite;
 
 /**
  *
- * @author Edgardo Quirós
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({managerList.ListSaverTest.class, managerList.ListLoaderTest.class, managerList.UsersListTest.class, managerList.MainTest.class})
@@ -35,5 +30,5 @@ public class ManagerListSuite {
     @After
     public void tearDown() throws Exception {
     }
-    
+
 }

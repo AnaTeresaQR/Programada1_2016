@@ -1,5 +1,6 @@
 package salesBuilder;
 
+import enums.EnumSale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import usersBuilder.CustomException;
@@ -79,7 +80,8 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
     @Override
     public void buildYear(int year) throws CustomException {
         if (year != 0
-                && year > 1900 && year < 2016) {
+                && year > EnumSale.MIN_YEAR.getNums()
+                && year < EnumSale.MAX_YEAR.getNums()) {
             sale.setYear(year);
         } else {
             throw new CustomException("No es posible guardar el año");
@@ -144,7 +146,7 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
      */
     @Override
     public void buildDays(int days) throws CustomException {
-        if (days > 0 && days <= 7) {
+        if (days > 0 && days <= EnumSale.MAX_SALE_DAYS.getNums()) {
             sale.setDays(days);
         } else {
             throw new CustomException("No es posible guardar la cantidad de dias restantes");
@@ -160,7 +162,7 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
      */
     @Override
     public void buildMinOffer(int minOffer) throws CustomException {
-        if (minOffer >= 100000) {
+        if (minOffer >= EnumSale.MIN_SALE_OFFER.getNums()) {
             sale.setMinOffer(minOffer);
         } else {
             throw new CustomException("No es posible guardar la cantidad minima ofertada");

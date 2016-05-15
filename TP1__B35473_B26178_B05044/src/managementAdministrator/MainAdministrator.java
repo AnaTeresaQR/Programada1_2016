@@ -11,6 +11,7 @@ public class MainAdministrator {
 
     /**
      * @param args the command line arguments
+     * @throws usersBuilder.CustomException
      */
     public static void main(String[] args) throws CustomException {
 //       Properties propiedades = new Properties();

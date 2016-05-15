@@ -2,7 +2,6 @@ package usersBuilder;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Objects;
 
 /**
  * The user object with its data, get and set

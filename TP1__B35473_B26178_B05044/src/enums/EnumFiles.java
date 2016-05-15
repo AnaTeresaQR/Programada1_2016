@@ -1,8 +1,9 @@
 package enums;
 
 /**
+ * Enum class containing the final variables to access binary file names
  *
- * @author Ana Teresa
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public enum EnumFiles {
 
