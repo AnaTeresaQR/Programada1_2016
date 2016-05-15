@@ -18,22 +18,22 @@ import static org.junit.Assert.*;
  * @author Edgardo Quirós
  */
 public class ConcreteBuilderCreateUserTest {
-    
+
     public ConcreteBuilderCreateUserTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -55,73 +55,68 @@ public class ConcreteBuilderCreateUserTest {
     /**
      * Test of checkName method, of class ConcreteBuilderCreateUser.
      */
-    @Test
-    public void testCheckName() {
-        System.out.println("checkName");
-        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-        boolean expResult = false;
-        boolean result = instance.checkName();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+//    @Test
+//    public void testCheckName() {
+//        System.out.println("checkName");
+//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+//        boolean expResult = false;
+//        boolean result = instance.checkName();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     /**
      * Test of checkId method, of class ConcreteBuilderCreateUser.
      */
-    @Test
-    public void testCheckId() {
-        System.out.println("checkId");
-        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-        boolean expResult = false;
-        boolean result = instance.checkId();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+//    @Test
+//    public void testCheckId() {
+//        System.out.println("checkId");
+//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+//        boolean expResult = false;
+//        boolean result = instance.checkId();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     /**
      * Test of checkEmail method, of class ConcreteBuilderCreateUser.
      */
-    @Test
-    public void testCheckEmail() {
-        System.out.println("checkEmail");
-        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-        boolean expResult = false;
-        boolean result = instance.checkEmail();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+//    @Test
+//    public void testCheckEmail() {
+//        System.out.println("checkEmail");
+//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+//        boolean expResult = false;
+//        boolean result = instance.checkEmail();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     /**
      * Test of checkPassword method, of class ConcreteBuilderCreateUser.
      */
-    @Test
-    public void testCheckPassword() {
-        System.out.println("checkPassword");
-        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-        boolean expResult = false;
-        boolean result = instance.checkPassword();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+//    @Test
+//    public void testCheckPassword() {
+//        System.out.println("checkPassword");
+//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+//        boolean expResult = false;
+//        boolean result = instance.checkPassword();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     /**
      * Test of checkPhoneNumber method, of class ConcreteBuilderCreateUser.
      */
-    @Test
-    public void testCheckPhoneNumber() {
-        System.out.println("checkPhoneNumber");
-        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
-        boolean expResult = false;
-        boolean result = instance.checkPhoneNumber();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
+//    @Test
+//    public void testCheckPhoneNumber() {
+//        System.out.println("checkPhoneNumber");
+//        ConcreteBuilderCreateUser instance = new ConcreteBuilderCreateUser();
+//        boolean expResult = false;
+//        boolean result = instance.checkPhoneNumber();
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
     /**
      * Test of buildId method, of class ConcreteBuilderCreateUser.
      */
@@ -199,5 +194,5 @@ public class ConcreteBuilderCreateUserTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
 }

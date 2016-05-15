@@ -26,14 +26,14 @@ public class DirectorSales {
      * @return the sale completely validate
      * @throws CustomException if could not create one of the parties
      */
-    public Sale createSale(AbstractBuilderCreateSale builder, String brand,String model,int year,String carId,String color,String description,int days,int minOffer) throws CustomException{
+    public Sale createSale(AbstractBuilderCreateSale builder, String brand, String model, int year, String carId, String color, String description, int days, int minOffer) throws CustomException {
         if (builder == null) {
             builder = new ConcreteBuilderCreateSale();
         }
 
         builder.buildBrand(brand);
         builder.buildCarId(model);
-        builder.buildYear(days);
+        builder.buildYear(year);
         builder.buildCarId(carId);
         builder.buildColor(color);
         builder.buildDescription(description);

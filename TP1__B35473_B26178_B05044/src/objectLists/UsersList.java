@@ -1,7 +1,10 @@
-package managerList;
+package objectLists;
 
+import enums.EnumFiles;
 import java.util.ArrayList;
 import java.util.List;
+import managerList.ListLoader;
+import managerList.ListSaver;
 import usersBuilder.CustomException;
 import usersBuilder.User;
 
@@ -87,14 +90,14 @@ public class UsersList {
      * Check if a user already exist in the list with te same email or with the
      * same id
      *
-     * @param user, receives the user to compare with the alements of the list
+     * @param user, receives the user to compare with the elements of the list
      * @return, true if have the same attributes with another object in the
      * list, false if does not existe the local object
      */
     public boolean exist(User user) {
-        for (User u : userslist) {
-            if (u.getEmail().equals(user.getEmail())
-                    || u.getId().equals(user.getId())) {
+        for (int i = 0; i < userslist.size(); i++) {
+            if (userslist.get(i).getEmail().equals(user.getEmail())
+                    || userslist.get(i).getId().equals(user.getId())) {
                 return true;
             }
         }
@@ -122,7 +125,7 @@ public class UsersList {
      * Load the list with file elements
      */
     private void listLoader() {
-        UserListLoader loader = new UserListLoader();
+        ListLoader<User> loader = new ListLoader<>(EnumFiles.USER_FILE_NAME.getValue());
         this.userslist = loader.loadList();
     }
 
@@ -130,7 +133,7 @@ public class UsersList {
      * Save the list in the binary file
      */
     public void save() {
-        UserListSaver save = new UserListSaver();
+        ListSaver<User> save = new ListSaver<>(EnumFiles.USER_FILE_NAME.getValue());
         save.saveList(this.userslist);
     }
 

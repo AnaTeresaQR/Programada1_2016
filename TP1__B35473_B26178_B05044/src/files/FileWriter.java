@@ -3,6 +3,7 @@ package files;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.List;
 
 /**
  * To open an object file that can be generic
@@ -32,12 +33,12 @@ public class FileWriter<T> {
     /**
      * It is responsible for writing to the file
      *
-     * @param object, receives the object that is to be written, can be a user
-     * or auctions
+     * @param list, receives the list that is to be written, can be a user or
+     * sales
      * @throws java.io.IOException if an error occurs when writing
      */
-    public void write(T object) throws IOException {
-        writer.writeObject(object); // write in the file
+    public void write(List<T> list) throws IOException {
+        writer.writeObject(list); // write in the file
     }
 
     /**

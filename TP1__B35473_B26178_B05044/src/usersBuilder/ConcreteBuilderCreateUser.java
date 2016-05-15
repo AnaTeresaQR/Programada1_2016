@@ -16,7 +16,7 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
     private boolean check;
 
     /**
-     * CFlass constructor
+     * Class constructor
      */
     public ConcreteBuilderCreateUser() {
         user = new User();
@@ -35,89 +35,6 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
     }
 
     /**
-     * Check the name, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkName() {
-
-        Pattern pat = Pattern.compile("[a-zA-Z]{0,100}");
-        Matcher mat = pat.matcher(user.getName());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
-     * Check the schedule or id, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkId() {
-
-        Pattern pat = Pattern.compile("[0-9]{9}");
-        Matcher mat = pat.matcher(user.getId());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
-     * Check the email, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkEmail() {
-
-        Pattern pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-        Matcher mat = pat.matcher(user.getEmail());
-        if (mat.find()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
-     * Check the password, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkPassword() {
-        Pattern pat = Pattern.compile("[a-zA-Z0-9]{5,}");
-        Matcher mat = pat.matcher(user.getPassword());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
-     * Check the phoneNumber, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkPhoneNumber() {
-        Pattern pat = Pattern.compile("[0-9]{8}");
-        Matcher mat = pat.matcher(user.getPhoneNumber());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
      * Builds id if it is not empty or null
      *
      * @param id, the schedule of the user
@@ -125,11 +42,13 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildId(String id) throws CustomException {
-        if (checkId()) {
+        if (id != null
+                && !id.equals("")
+                && checkId(id)) {
             user.setId(id);
         } else {
-                       throw new CustomException("Formato incorrecto de cédula, utilice el formato de cédula costarricense");
- 
+            throw new CustomException("Formato incorrecto de cédula, utilice el formato de cédula costarricense");
+
         }
 
     }
@@ -142,7 +61,9 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildName(String name) throws CustomException {
-        if (checkName()) {
+        if (name != null
+                && !name.equals("")
+                && checkName(name)) {
             user.setName(name);
 
         } else {
@@ -158,7 +79,9 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildEmail(String email) throws CustomException {
-        if (checkEmail()) {
+        if (email != null
+                && !email.equals("")
+                && checkEmail(email)) {
             user.setEmail(email);
         } else {
             throw new CustomException("Formato incorrecto de email, Ingrese de nuevo. Ejemplo: ejemplo1@ejemplo.com");
@@ -173,11 +96,13 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildPassword(String password) throws CustomException {
-        if (checkPassword()) {
+        if (password != null
+                && !password.equals("")
+                && checkPassword(password)) {
             user.setPassword(password);
         } else {
-        throw new CustomException("Formato incorrecto de contraseña. Ingrese de nuevo, no debe contener caracteres especiales y debe tener una extensión mínima de 5 caracteres.");
-       }
+            throw new CustomException("Formato incorrecto de contraseña. Ingrese de nuevo, no debe contener caracteres especiales y debe tener una extensión mínima de 5 caracteres.");
+        }
     }
 
     /**
@@ -203,11 +128,76 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
      */
     @Override
     public void buildPhoneNumber(String phoneNumber) throws CustomException {
-        if (checkPhoneNumber()) {
+        if (phoneNumber != null
+                && !phoneNumber.equals("")
+                && checkPhoneNumber(phoneNumber)) {
             user.setPhoneNumber(phoneNumber);
         } else {
             throw new CustomException("Formato incorrecto de teléfono. Ingrese de nuevo, utilizar formato constarricense");
         }
+    }
+
+    /**
+     * Check the name, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkName(String name) {
+
+        Pattern pat = Pattern.compile("[a-zA-Z]{0,100}");
+        Matcher mat = pat.matcher(name);
+        check = mat.matches();
+        return check;
+    }
+
+    /**
+     * Check the schedule or id, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkId(String id) {
+        Pattern pat = Pattern.compile("[0-9]{9}");
+        Matcher mat = pat.matcher(id);
+        check = mat.matches();
+        return check;
+    }
+
+    /**
+     * Check the email, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkEmail(String email) {
+
+        Pattern pat = Pattern.compile("^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+//        Pattern pat = Pattern.compile("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
+        Matcher mat = pat.matcher(email);
+        check = mat.find();
+        return check;
+    }
+
+    /**
+     * Check the password, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkPassword(String password) {
+        Pattern pat = Pattern.compile("[a-zA-Z0-9]{5,}");
+        Matcher mat = pat.matcher(password);
+        check = mat.matches();
+        return check;
+    }
+
+    /**
+     * Check the phoneNumber, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkPhoneNumber(String phoneNumber) {
+        Pattern pat = Pattern.compile("[0-9]{8}");
+        Matcher mat = pat.matcher(phoneNumber);
+        check = mat.matches();
+        return check;
     }
 
     /**
@@ -229,6 +219,5 @@ public class ConcreteBuilderCreateUser implements AbstractBuilderCreateUser {
         }
         return year >= 18;
     }
-
 
 }

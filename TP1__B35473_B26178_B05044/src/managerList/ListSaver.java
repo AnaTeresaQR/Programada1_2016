@@ -3,20 +3,19 @@ package managerList;
 import files.FileWriter;
 import java.io.IOException;
 import java.util.List;
-import usersBuilder.User;
 
 /**
  * Class writes the list stored in the collection in a binary file
  *
  * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
+ * @param <T> the object that will be save in the list
  */
-public class UserListSaver {
+public class ListSaver<T> {
 
-    private final FileWriter<User> fileWriter;
-    private final String FILE_NAME = "usersFile.bin"; // users binary file
+    private final FileWriter<T> fileWriter;
 
-    public UserListSaver() {
-        fileWriter = new FileWriter<>(FILE_NAME);
+    public ListSaver(String fileName) {
+        fileWriter = new FileWriter<>(fileName);
     }
 
     /**
@@ -25,14 +24,12 @@ public class UserListSaver {
      *
      * @param list, receives the list to write in the file
      */
-    public void saveList(List<User> list) {
+    public void saveList(List<T> list) {
         try {
             fileWriter.clear(); // first clear the file
             fileWriter.open();
 
-            for (User userTemp : list) {
-                fileWriter.write(userTemp); // write a user in the binary file
-            }
+            fileWriter.write(list);
 
             fileWriter.close();
         } catch (IOException e) {

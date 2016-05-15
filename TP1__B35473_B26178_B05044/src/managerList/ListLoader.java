@@ -5,20 +5,19 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import usersBuilder.User;
 
 /**
  * Class is responsible for loading a list of objects stored in a binary file
  *
  * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
+ * @param <T> the object that will be load in the list
  */
-public class UserListLoader {
+public class ListLoader<T> {
 
-    private FileReader<User> reader;
-    private final String FILE_NAME = "usersFile.bin"; // users binary file
+    private FileReader<T> reader;
 
-    public UserListLoader() {
-        reader = new FileReader<>(FILE_NAME);
+    public ListLoader(String fileName) {
+        reader = new FileReader<>(fileName);
     }
 
     /**
@@ -26,12 +25,12 @@ public class UserListLoader {
      *
      * @return the list of loaded elements
      */
-    public List<User> loadList() {
-        List<User> list = new ArrayList<>();
+    public List<T> loadList() {
+        List<T> list = new ArrayList<>();
         try {
             reader.open(); // open it
             while (true) {
-                list.add(reader.read()); // add the user in the list, that is in the file
+                list.add(reader.read()); // add the object in the list, that is in the file
             }
 
             // If we read to the end of file

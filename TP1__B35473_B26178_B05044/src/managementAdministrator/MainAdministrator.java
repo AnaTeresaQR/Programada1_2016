@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package managementAdministrator;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 import salesBuilder.ConcreteBuilderCreateSale;
 import usersBuilder.CustomException;
 
@@ -47,16 +38,12 @@ public class MainAdministrator {
 //            }
 //        }
 
-        ConcreteBuilderCreateSale cu= new ConcreteBuilderCreateSale();
-        String placa="123ASC";
-       cu.buildCarId(placa);
-        
-        boolean prueba=cu.checkCarId();
-        System.out.println(prueba);
-               
-        
+        ConcreteBuilderCreateSale cu = new ConcreteBuilderCreateSale();
+        String placa = "123ASC";
+        cu.buildCarId(placa);
+//        
+//        boolean prueba=cu.checkCarId();
+//        System.out.println(prueba);
 
     }
-    }
-    
-
+}

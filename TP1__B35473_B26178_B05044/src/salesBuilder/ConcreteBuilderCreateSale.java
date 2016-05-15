@@ -1,7 +1,5 @@
 package salesBuilder;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import usersBuilder.CustomException;
@@ -18,7 +16,7 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
     private boolean check;
 
     /**
-     * CFlass constructor
+     * Class constructor
      */
     public ConcreteBuilderCreateSale() {
         sale = new Sale();
@@ -32,132 +30,24 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
      */
     @Override
     public Sale getSale() throws CustomException {
-
         return sale;
-    }
-
-    /**
-     * Check the brand, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkBrand() {
-
-        Pattern pat = Pattern.compile("[a-zA-Z0-9]{0,15}");
-        Matcher mat = pat.matcher(sale.getBrand());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
-     * Check the model, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkModel() {
-
-        Pattern pat = Pattern.compile("[a-zA-Z0-9]{0,15}");
-        Matcher mat = pat.matcher(sale.getBrand());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
-     * Check the carIdOldType, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkCarIdOldType() {
-
-        Pattern pat = Pattern.compile("[0-9]{6}");
-        Matcher mat = pat.matcher(sale.getCarId());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
-     * Check the carIdNewType, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkCarIdNewType() {
-
-        Pattern pat = Pattern.compile("[A-Z]{3}+[0-9]{3}");
-        Matcher mat = pat.matcher(sale.getCarId());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
-     * Check the name, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkColor() {
-
-        Pattern pat = Pattern.compile("[a-zA-Z]{0,15}");
-        Matcher mat = pat.matcher(sale.getBrand());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    /**
-     * Check the name, validation with regular expressions
-     *
-     * @return true if matches, false if not
-     */
-    public boolean checkDescription() {
-
-        Pattern pat = Pattern.compile("[a-zA-Z]{0,200}");
-        Matcher mat = pat.matcher(sale.getBrand());
-        if (mat.matches()) {
-            check = true;
-        } else {
-            check = false;
-        }
-        return check;
-    }
-
-    public boolean checkCarId() {
-        if (checkCarIdNewType() || checkCarIdOldType()) {
-            return true;
-        } else {
-            return true;
-        }
     }
 
     /**
      * Builds brand if it is not empty or null
      *
-     * @param brand, the schedule of the sale
-     * @throws CustomException, if can not set the id
+     * @param brand, the brand of the car sale
+     * @throws CustomException, if can not set the brand
      */
     @Override
     public void buildBrand(String brand) throws CustomException {
-        if (checkBrand()) {
+        if (brand != null
+                && !brand.equals("")
+                && checkBrand(brand)) {
             sale.setBrand(brand);
         } else {
-            throw new CustomException("La extensión de la marca excede el tamaño permitido, debe ser menor a 15 caracteres.");
+            throw new CustomException("La extensión de la marca excede el tamaño permitido,"
+                    + " debe ser menor a 15 caracteres, y no debe contener caracteres especiales.");
         }
 
     }
@@ -165,27 +55,31 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
     /**
      * Builds model if it is not empty or null
      *
-     * @param model, the name of the sale
+     * @param model, the model of the car sale
      * @throws CustomException, if can not set the name
      */
     @Override
     public void buildModel(String model) throws CustomException {
-        if (checkModel()) {
+        if (model != null
+                && !model.equals("")
+                && checkModel(model)) {
             sale.setModel(model);
         } else {
-            throw new CustomException("La extensión del modelo excede el tamaño permitido, debe ser menor a 15 caracteres.");
+            throw new CustomException("La extensión del modelo excede el tamaño permitido,"
+                    + " debe ser menor a 15 caracteres, y no debe contener caracteres especiales.");
         }
     }
 
     /**
-     * Builds year if it is 
+     * Builds year if it is not 0 or if it is between 1900 and 2016
      *
-     * @param year, the email of the sale
-     * @throws CustomException if can not set themail
+     * @param year, the year of the car sale
+     * @throws CustomException if can not set the year
      */
     @Override
     public void buildYear(int year) throws CustomException {
-        if (year > 1900 && year < 2016) {
+        if (year != 0
+                && year > 1900 && year < 2016) {
             sale.setYear(year);
         } else {
             throw new CustomException("No es posible guardar el año");
@@ -195,12 +89,14 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
     /**
      * Builds carId if it is not empty or null
      *
-     * @param carId, the email password of the sale
-     * @throws CustomException if can not set password
+     * @param carId, the car id of the sale
+     * @throws CustomException if can not set carId
      */
     @Override
     public void buildCarId(String carId) throws CustomException {
-        if (checkCarId()) {
+        if (carId != null
+                && !carId.equals("")
+                && checkCarId(carId)) {
             sale.setCarId(carId);
         } else {
             throw new CustomException("La matricula del carro no coincide con el tipo de matricula permitida en Costa Rica");
@@ -208,29 +104,32 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
     }
 
     /**
-     * Check Color if it is not null or if the sale is of age
+     * Check Color if it is not null or empty
      *
-     * @param color, receives the sale birthdate
-     * @throws CustomException if can not set the birthdate
+     * @param color, receives the car sale color
+     * @throws CustomException if can not set the color of the car sale
      */
     @Override
     public void buildColor(String color) throws CustomException {
-        if (color != null && !color.equals("")) {
+        if (color != null
+                && !color.equals("")
+                && checkColor(color)) {
             sale.setCarId(color);
         } else {
-            throw new CustomException("La extensión de la marca excede el tamaño permitido, debe ser menor a 15 caracteres.");
+            throw new CustomException("El color del auto no debe contener caracteres especiales ni números,"
+                    + " debe ser menor a 15 caracteres.");
         }
     }
 
     /**
-     * Builds description if it is not empty or null
+     * Builds description if it is not null
      *
-     * @param description , the phoneNumber of the sale
-     * @throws CustomException if can not set phoneNumber
+     * @param description , the description of the sale
+     * @throws CustomException if can not set the description
      */
     @Override
     public void buildDescription(String description) throws CustomException {
-        if (description != null) {
+        if (description != null && checkDescription(description)) {
             sale.setDescription(description);
         } else {
             throw new CustomException("La extensión de la description excede el tamaño permitido, debe ser menor a 200 caracteres.");
@@ -238,7 +137,7 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
     }
 
     /**
-     * Builds description if it is not empty or null
+     * Builds description if it is not 0 or if it is not more than 7
      *
      * @param days , the days of the sale
      * @throws CustomException if can not set days
@@ -253,14 +152,111 @@ public class ConcreteBuilderCreateSale implements AbstractBuilderCreateSale {
 
     }
 
+    /**
+     * Builds minOffer if it is bigger than 100000
+     *
+     * @param minOffer, the minOffer of the sale
+     * @throws CustomException if can not set minOffer
+     */
     @Override
     public void buildMinOffer(int minOffer) throws CustomException {
-        if (minOffer > 100000) {
+        if (minOffer >= 100000) {
             sale.setMinOffer(minOffer);
         } else {
             throw new CustomException("No es posible guardar la cantidad minima ofertada");
         }
 
+    }
+
+    /**
+     * Check the brand, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkBrand(String brand) {
+
+        Pattern pat = Pattern.compile("[a-zA-Z0-9]{0,15}");
+        Matcher mat = pat.matcher(brand);
+        check = mat.matches();
+        return check;
+    }
+
+    /**
+     * Check the model, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkModel(String model) {
+
+        Pattern pat = Pattern.compile("[a-zA-Z0-9]{0,15}");
+        Matcher mat = pat.matcher(model);
+        check = mat.matches();
+        return check;
+    }
+
+    /**
+     * Check the carIdOldType, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkCarIdOldType(String carOldId) {
+
+        Pattern pat = Pattern.compile("[0-9]{6}");
+        Matcher mat = pat.matcher(carOldId);
+        check = mat.matches();
+        return check;
+    }
+
+    /**
+     * Check the carIdNewType, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkCarIdNewType(String carNewId) {
+
+        Pattern pat = Pattern.compile("[A-Z]{3}+[0-9]{3}");
+        Matcher mat = pat.matcher(carNewId);
+        check = mat.matches();
+        return check;
+    }
+
+    /**
+     * Check the car color, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkColor(String color) {
+
+        Pattern pat = Pattern.compile("[a-zA-Z]{0,15}");
+        Matcher mat = pat.matcher(color);
+        check = mat.matches();
+        return check;
+    }
+
+    /**
+     * Check the description, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkDescription(String description) {
+
+        Pattern pat = Pattern.compile("[a-zA-Z]{0,200}");
+        Matcher mat = pat.matcher(description);
+        check = mat.matches();
+        return check;
+    }
+
+    /**
+     * Check the car id, validation with regular expressions
+     *
+     * @return true if matches, false if not
+     */
+    private boolean checkCarId(String carId) {
+        if (checkCarIdOldType(carId) || checkCarIdNewType(carId)) {
+            return true;
+        } else {
+            return true;
+        }
     }
 
 }

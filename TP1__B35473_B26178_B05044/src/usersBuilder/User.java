@@ -79,7 +79,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{ " + "Schedule: " + id + ", name: " + name + "\nemail: " + email + ", password: " + password + ", birthdate: " + birthdate.getTime().toLocaleString() + ", phoneNumber: " + phoneNumber + '}';
+        return "\nUsuario{ " + "Schedule: " + id + ", name: " + name + "\nemail: " + email + ", password: " + password + ", birthdate: " + birthdate.getTime().toLocaleString() + ", phoneNumber: " + phoneNumber + '}';
     }
 
 }

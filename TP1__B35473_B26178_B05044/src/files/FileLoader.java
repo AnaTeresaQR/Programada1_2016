@@ -41,9 +41,7 @@ public class FileLoader {
      * @return File containing information about the userfile
      */
     public File getFile() {
-
         return this.userFile;
-
     }
 
     /**

@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package salesBuilder;
 
-
 /**
+ * The sale object with its data, get and set
  *
- * @author Edgardo Quirós
+ * @author Robert Sánchez, Edgardo Quirós, Ana Teresa Quesada.
  */
 public class Sale {
 
@@ -101,8 +96,7 @@ public class Sale {
 
     @Override
     public String toString() {
-        return "Sale{" + "brand=" + brand + ", model=" + model + ", year=" + year + ", carId=" + carId + ", color=" + color + ", description=" + description + ", days=" + days + ", minOffer=" + minOffer + '}';
+        return "\nSale{" + "brand: " + brand + ", model: " + model + ", year: " + year + ", carId: " + carId + ", color: " + color + ", description: " + description + ", days: " + days + ", minOffer: " + minOffer + '}';
     }
 
-    
 }

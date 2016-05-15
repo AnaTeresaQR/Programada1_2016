@@ -1,40 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package usersBuilder;
 
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author Edgardo Quirós
  */
 public class UserTest {
-    
+
     public UserTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -200,7 +193,6 @@ public class UserTest {
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
 //    }
-
     /**
      * Test of toString method, of class User.
      */
@@ -208,11 +200,10 @@ public class UserTest {
     public void testToString() {
         System.out.println("toString");
         User user = new User("207410170", "AnaTeresaQuesada", "ana.quesada@gmail.com", "123456A", new GregorianCalendar(1995, 6, 29), "87518238");
-        String expResult ="";
+        String expResult = "";
         String result = user.toString();
-        assertNotEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-      
+        //assertNotEquals(expResult, result);
+
     }
-    
+
 }

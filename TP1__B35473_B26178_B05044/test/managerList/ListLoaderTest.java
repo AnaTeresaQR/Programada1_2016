@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package managerList;
 
+import enums.EnumFiles;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -18,38 +14,37 @@ import usersBuilder.User;
  *
  * @author Edgardo Quirós
  */
-public class UserListLoaderTest {
-    
-    public UserListLoaderTest() {
+public class ListLoaderTest {
+
+    public ListLoaderTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
 
     /**
-     * Test of loadList method, of class UserListLoader.
+     * Test of loadList method, of class ListLoader.
      */
     @Test
     public void testLoadList() {
         System.out.println("loadList");
-        UserListLoader listLoader = new UserListLoader();
+        ListLoader listLoader = new ListLoader(EnumFiles.USER_FILE_NAME.getValue());
         List<User> list = listLoader.loadList();
         assertNotNull(list);
-    
-    
+
     }
-    
+
 }

@@ -1,7 +1,5 @@
 package salesBuilder;
 
-import java.util.Calendar;
-import java.util.Date;
 import usersBuilder.CustomException;
 
 /**
@@ -29,5 +27,5 @@ public interface AbstractBuilderCreateSale {
     public void buildMinOffer(int minOffer) throws CustomException;
 
     public Sale getSale() throws CustomException;
-    
+
 }

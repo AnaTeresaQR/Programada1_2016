@@ -17,7 +17,7 @@ import org.junit.runners.Suite;
  * @author Edgardo Quirós
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({managerList.UserListSaverTest.class, managerList.UserListLoaderTest.class, managerList.UsersListTest.class, managerList.MainTest.class})
+@Suite.SuiteClasses({managerList.ListSaverTest.class, managerList.ListLoaderTest.class, managerList.UsersListTest.class, managerList.MainTest.class})
 public class ManagerListSuite {
 
     @BeforeClass
