@@ -19,7 +19,7 @@ public class Main {
 
         Director director = new Director();
 
-        User user3 = director.createUser(abs, "207410170", "AnaTeresa", "ana.quesada@ucrso.info", "ana123", new GregorianCalendar(1995, 9, 9), "84590688");
+        User user3 = director.createUser(abs, "201740170", "AnaTeresa", "ana.quesada@ucrso.info", "ana123", new GregorianCalendar(1995, 9, 9), "84590688");
         UsersList userList = UsersList.getUniqueInstance();
         // save the list
         userList.register(user3); // register an user
@@ -27,7 +27,7 @@ public class Main {
         // refresh
         userList.refresh();
 
-        System.out.println(userList.getIndex(0));
+//        System.out.println(userList.getIndex(0));
         System.out.println("Login user: " + userList.login("ana.quesada@ucrso.info", "ana123")); // login a user
 
     }

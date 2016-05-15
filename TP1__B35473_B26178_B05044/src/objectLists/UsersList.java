@@ -69,10 +69,12 @@ public class UsersList {
                 if (temp.getPassword().equals(password)) {
                     // return the user found
                     return temp;
+                } else {
+                    // the user is not found 
+                    throw new CustomException("No se encontro el usuario con el email y la contraseña ingresada");
                 }
             }
         }
-        // the user is not found 
         throw new CustomException("No se encontro el usuario");
     }
 

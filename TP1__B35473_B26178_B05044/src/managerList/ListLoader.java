@@ -29,13 +29,11 @@ public class ListLoader<T> {
         List<T> list = new ArrayList<>();
         try {
             reader.open(); // open it
-            while (true) {
-                list.add(reader.read()); // add the object in the list, that is in the file
-            }
-
+            list = (List<T>) reader.read(); // add the object in the list, that is in the file
+            return list;
             // If we read to the end of file
         } catch (EOFException e) {
-            return list; // return list, because do not know the size of the file, we need to read the entire file
+            System.out.println("Error al terminar de leer el archivo");
         } catch (IOException | ClassNotFoundException ex) {
             System.out.println("Hubo un error en el archivo o no se encontrò la clase que se buscaba\n" + ex.getMessage());
         } catch (NullPointerException e) {
